@@ -11,7 +11,20 @@
 		1F9F9BB12CCFB88000251B16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F9BB02CCFB88000251B16 /* ContentView.swift */; };
 		1F9F9BB32CCFB88100251B16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F9BB22CCFB88100251B16 /* Assets.xcassets */; };
 		1F9F9BB62CCFB88100251B16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F9BB52CCFB88100251B16 /* Preview Assets.xcassets */; };
+		1F9F9BC32CCFB9BC00251B16 /* Unit_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F9BC22CCFB9BC00251B16 /* Unit_Test.swift */; };
+		1F9F9BCB2CCFBB4100251B16 /* TipCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F9BCA2CCFBB4100251B16 /* TipCalculator.swift */; };
+		1F9F9BCC2CCFBB4C00251B16 /* TipCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F9BCA2CCFBB4100251B16 /* TipCalculator.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F9F9BC42CCFB9BC00251B16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9F9BA32CCFB88000251B16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F9F9BAA2CCFB88000251B16;
+			remoteInfo = "SwiftUI-TDD-Study";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F9F9BAB2CCFB88000251B16 /* SwiftUI-TDD-Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-TDD-Study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +32,21 @@
 		1F9F9BB02CCFB88000251B16 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F9F9BB22CCFB88100251B16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F9F9BB52CCFB88100251B16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1F9F9BC02CCFB9BC00251B16 /* unit-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "unit-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9F9BC22CCFB9BC00251B16 /* Unit_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit_Test.swift; sourceTree = "<group>"; };
+		1F9F9BCA2CCFBB4100251B16 /* TipCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculator.swift; sourceTree = "<group>"; };
+		1F9F9BCE2CCFBE0500251B16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1F9F9BA82CCFB88000251B16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F9F9BBD2CCFB9BC00251B16 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,7 +59,9 @@
 		1F9F9BA22CCFB88000251B16 = {
 			isa = PBXGroup;
 			children = (
+				1F9F9BCE2CCFBE0500251B16 /* README.md */,
 				1F9F9BAD2CCFB88000251B16 /* SwiftUI-TDD-Study */,
+				1F9F9BC12CCFB9BC00251B16 /* unit-test */,
 				1F9F9BAC2CCFB88000251B16 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9F9BAB2CCFB88000251B16 /* SwiftUI-TDD-Study.app */,
+				1F9F9BC02CCFB9BC00251B16 /* unit-test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,6 +78,7 @@
 		1F9F9BAD2CCFB88000251B16 /* SwiftUI-TDD-Study */ = {
 			isa = PBXGroup;
 			children = (
+				1F9F9BC92CCFBB3100251B16 /* Models */,
 				1F9F9BAE2CCFB88000251B16 /* SwiftUI_TDD_StudyApp.swift */,
 				1F9F9BB02CCFB88000251B16 /* ContentView.swift */,
 				1F9F9BB22CCFB88100251B16 /* Assets.xcassets */,
@@ -65,6 +93,22 @@
 				1F9F9BB52CCFB88100251B16 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1F9F9BC12CCFB9BC00251B16 /* unit-test */ = {
+			isa = PBXGroup;
+			children = (
+				1F9F9BC22CCFB9BC00251B16 /* Unit_Test.swift */,
+			);
+			path = "unit-test";
+			sourceTree = "<group>";
+		};
+		1F9F9BC92CCFBB3100251B16 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F9F9BCA2CCFBB4100251B16 /* TipCalculator.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +131,24 @@
 			productReference = 1F9F9BAB2CCFB88000251B16 /* SwiftUI-TDD-Study.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1F9F9BBF2CCFB9BC00251B16 /* unit-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F9F9BC62CCFB9BC00251B16 /* Build configuration list for PBXNativeTarget "unit-test" */;
+			buildPhases = (
+				1F9F9BBC2CCFB9BC00251B16 /* Sources */,
+				1F9F9BBD2CCFB9BC00251B16 /* Frameworks */,
+				1F9F9BBE2CCFB9BC00251B16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F9F9BC52CCFB9BC00251B16 /* PBXTargetDependency */,
+			);
+			name = "unit-test";
+			productName = "unit-test";
+			productReference = 1F9F9BC02CCFB9BC00251B16 /* unit-test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +161,10 @@
 				TargetAttributes = {
 					1F9F9BAA2CCFB88000251B16 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					1F9F9BBF2CCFB9BC00251B16 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 1F9F9BAA2CCFB88000251B16;
 					};
 				};
 			};
@@ -116,6 +182,7 @@
 			projectRoot = "";
 			targets = (
 				1F9F9BAA2CCFB88000251B16 /* SwiftUI-TDD-Study */,
+				1F9F9BBF2CCFB9BC00251B16 /* unit-test */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +197,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F9F9BBE2CCFB9BC00251B16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,12 +211,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9F9BCB2CCFBB4100251B16 /* TipCalculator.swift in Sources */,
 				1F9F9BB12CCFB88000251B16 /* ContentView.swift in Sources */,
 				1F9F9BAF2CCFB88000251B16 /* SwiftUI_TDD_StudyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F9F9BBC2CCFB9BC00251B16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F9F9BC32CCFB9BC00251B16 /* Unit_Test.swift in Sources */,
+				1F9F9BCC2CCFBB4C00251B16 /* TipCalculator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F9F9BC52CCFB9BC00251B16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F9F9BAA2CCFB88000251B16 /* SwiftUI-TDD-Study */;
+			targetProxy = 1F9F9BC42CCFB9BC00251B16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1F9F9BB72CCFB88100251B16 /* Debug */ = {
@@ -322,6 +414,42 @@
 			};
 			name = Release;
 		};
+		1F9F9BC72CCFB9BC00251B16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SLJSFTZPUZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pendant-k.unit-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUI-TDD-Study.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftUI-TDD-Study";
+			};
+			name = Debug;
+		};
+		1F9F9BC82CCFB9BC00251B16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SLJSFTZPUZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pendant-k.unit-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUI-TDD-Study.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftUI-TDD-Study";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -339,6 +467,15 @@
 			buildConfigurations = (
 				1F9F9BBA2CCFB88100251B16 /* Debug */,
 				1F9F9BBB2CCFB88100251B16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F9F9BC62CCFB9BC00251B16 /* Build configuration list for PBXNativeTarget "unit-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F9F9BC72CCFB9BC00251B16 /* Debug */,
+				1F9F9BC82CCFB9BC00251B16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
