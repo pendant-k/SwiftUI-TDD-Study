@@ -7,35 +7,97 @@
 
 import XCTest
 
-final class ui_tests: XCTestCase {
+final class content_view_보여질때: XCTestCase {
+    // test case 프로퍼티 변수로 app 선언,
+    // setUp 매서드 내에서 app 변수에 실제 인스턴스 할당하여 각 단위테스트에서 app 변수를 활용
+    private var app: XCUIApplication!
+    private var contentViewPage: ContentViewPage!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+    override func setUp() {
+        // app 인스턴스 할당
+        app = XCUIApplication()
+        contentViewPage = ContentViewPage(app: app)
+        // 에러 발생 시 테스트 종료
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        // 앱 실행
+        app.launch()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func test_total_text_field_기본값_가지는지_확인() {
+        XCTAssertEqual(contentViewPage.totalTextField.value as! String, "Enter total")
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    func test_기본팁_20퍼센트_확인() {
+        // TODO: checkout segmentedControls
+        // boundBy -> 인덱스 1의 버튼 가져오기
+        let segmentedControlButton = contentViewPage.tipPercentageSegmentedControl.buttons.element(boundBy: 1)
+
+        XCTAssertEqual(segmentedControlButton.label, "20%")
+        XCTAssertTrue(segmentedControlButton.isSelected)
+    }
+
+    override func tearDown() {
+        // clean up
+    }
+}
+
+class when_calculate_tip_button_is_pressed_for_valid_input: XCTestCase {
+    private var app: XCUIApplication!
+    private var contentViewPage: ContentViewPage!
+
+    override func setUp() {
+        app = XCUIApplication()
+        contentViewPage = ContentViewPage(app: app)
+        continueAfterFailure = false
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let totalTextField = contentViewPage.totalTextField
+        totalTextField.tap()
+        totalTextField.typeText("100")
+
+        // Button View의 label을 가져옴..
+        // Button은 못가져오나?
+        let calculateTipButton = contentViewPage.calculateTipButton
+
+        calculateTipButton.tap()
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func test_should_make_sure_that_tip_is_displayed_on_the_screen() {
+        let tipText = contentViewPage.tipText
+        let _ = tipText.waitForExistence(timeout: 0.5)
+        XCTAssertEqual(tipText.label, "20.0")
+    }
+}
+
+class when_calculate_tip_button_is_pressed_for_invalid_input: XCTestCase {
+    private var app: XCUIApplication!
+    private var contentViewPage: ContentViewPage!
+
+    override func setUp() {
+        app = XCUIApplication()
+        contentViewPage = ContentViewPage(app: app)
+        continueAfterFailure = false
+        app.launch()
+
+        let totalTextField = contentViewPage.totalTextField
+        totalTextField.tap()
+        totalTextField.typeText("-100")
+        let calculateTipButton = contentViewPage.calculateTipButton
+
+        calculateTipButton.tap()
+    }
+
+    func test_should_clear_tip_label_for_invalid_input() {
+        let tipText = contentViewPage.tipText
+        let _ = tipText.waitForExistence(timeout: 0.5)
+
+        XCTAssertEqual(tipText.label, "")
+    }
+
+    func test_should_display_error_message_for_invalid_input() {
+        let messageText = contentViewPage.messageText
+        let _ = messageText.waitForExistence(timeout: 0.5)
+
+        XCTAssertEqual(messageText.label, "Invalid Input")
     }
 }
