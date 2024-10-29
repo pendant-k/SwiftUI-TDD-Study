@@ -6,6 +6,8 @@ struct ContentView: View {
     @State private var tip: String?
     @State private var message: String = ""
     
+    let tipCalculator = TipCalculator()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -20,7 +22,31 @@ struct ContentView: View {
                     EmptyView()
                 }.pickerStyle(.segmented)
 
-                Button("Calculate Tip") {}.padding(.top, 20)
+                // error catch -> UI에서 캐치해서 message 업데이트
+                // 각 네트워크가 필요한 컴포넌트마다 컴포넌트 status를 두는 것도 좋을듯
+                // 공용 component status enum ?
+                Button("Calculate Tip") {
+                    message = ""
+                    tip = ""
+                    
+                    do {
+                        guard let total = Double(self.total) else {
+                            throw TipCalculatorError.invalidInput
+                        }
+                        
+                        let result = try tipCalculator.calculate(total: total, tipPercentage: tipPercentage)
+                        
+                        let formatter = NumberFormatter()
+                        formatter.numberStyle = .currency
+                        tip = formatter.string(from: NSNumber(value: result))
+                        
+                    } catch TipCalculatorError.invalidInput {
+                        message = "Invalid Input"
+                    } catch {
+                        message = error.localizedDescription
+                    }
+                    
+                }.padding(.top, 20)
                 
                 Text(message)
                     .padding(.top, 50)
